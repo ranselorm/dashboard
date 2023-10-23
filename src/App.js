@@ -1,5 +1,5 @@
 function App() {
-  return <div>Hello World</div>;
+  return <h1 className="underline text-4xl uppercase">Hello World</h1>;
 }
 
 export default App;
