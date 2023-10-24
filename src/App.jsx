@@ -1,11 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { FiSettings } from "react-icons/fi";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
-
 //components imports
 import { Navbar, Sidebar, ThemeSettings, Footer } from "./components";
-
 //pages imports
 import {
   Ecommerce,
@@ -19,13 +17,16 @@ import {
   ColorMapping,
   Line,
   Bar,
+  Pie,
+  Pyramid,
   Area,
   Financial,
   Stacked,
 } from "./pages";
+import { StateContext } from "./contexts/ContextProvider";
 
 function App() {
-  const activeMenu = true;
+  const { activeMenu } = useContext(StateContext);
 
   return (
     <div>
@@ -44,10 +45,13 @@ function App() {
           </div>
           {activeMenu ? (
             <div className="fixed w-72 sidebar dark:bg-secondary-dark-bg">
-              sidebar 1
+              <Sidebar />
             </div>
           ) : (
-            <div className="w-0 dark:bg-secondary-dark-bg">sidebar 2 w-0</div>
+            <div className="w-0 dark:bg-secondary-dark-bg">
+              {/* <AiOutlineMenuFold onClick={() => setActiveMenu(true)} /> */}
+              <Sidebar />
+            </div>
           )}
           <div
             className={`dark:bg-main-bg w-full min-h-screen ${
@@ -55,7 +59,7 @@ function App() {
             }`}
           >
             <div className="fixed md:static bg-main-bg dark:bg-secondary-dark-bg navbar w-full">
-              Navbar
+              <Navbar />
             </div>
           </div>
           <div>
