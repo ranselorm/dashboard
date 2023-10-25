@@ -25,7 +25,24 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
 );
 
 const Navbar = () => {
-  const { activeMenu, setActiveMenu } = useContext(StateContext);
+  const {
+    activeMenu,
+    setActiveMenu,
+    isClicked,
+    setIsClicked,
+    handleClick,
+    screenSize,
+    setScreenSize,
+  } = useContext(StateContext);
+
+  useEffect(() => {
+    const handleResize = () => setScreenSize(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    console.log(screenSize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <nav className="flex justify-between p-2 md:mx-6 relative">
       <NavButton
@@ -69,6 +86,10 @@ const Navbar = () => {
           </p>
           <MdKeyboardArrowDown />
         </div>
+        {isClicked.cart && <Cart />}
+        {isClicked.chat && <Chat />}
+        {isClicked.notification && <Notification />}
+        {isClicked.userProfile && <UserProfile />}
       </div>
     </nav>
   );
