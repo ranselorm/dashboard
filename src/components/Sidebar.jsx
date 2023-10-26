@@ -9,10 +9,16 @@ import { links } from "../data/dummy";
 import { StateContext } from "../contexts/ContextProvider";
 
 const Sidebar = () => {
-  const { activeMenu, setActiveMenu } = useContext(StateContext);
+  const { activeMenu, setActiveMenu, screenSize } = useContext(StateContext);
+
+  const handleCloseSidebar = () => {
+    if (activeMenu && screenSize <= 900) {
+      setActiveMenu(false);
+    }
+  };
 
   const activeLink =
-    "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-white text-md m-2";
+    "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-white bg-teal-500 text-md m-2";
 
   const normalLink =
     "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2 text-md";
@@ -22,27 +28,22 @@ const Sidebar = () => {
       <div>
         {activeMenu && (
           <>
-            <div
-              className="flex items-center justify-between"
-              onClick={() => {}}
-            >
+            <div className="flex items-center justify-between">
               <Link
                 to="/"
                 className="flex gap-3 items-center ml-3 text-xl mt-4 font-extrabold tracking-tight dark:text-white text-slate-900"
-                onClick={() => setActiveMenu(false)}
+                onClick={handleCloseSidebar}
               >
                 <SiShopware />
                 <span>Shoppy</span>
               </Link>
-              <TooltipComponent content="Close" position="BottomCenter">
-                <button
-                  type="button"
-                  onClick={() => setActiveMenu(false)}
-                  className="text-xl mt-4 p-3 rounded-full hover:bg-light-gray block md:hidden"
-                >
-                  <MdOutlineCancel className="cursor-pointer" />
-                </button>
-              </TooltipComponent>
+              <button
+                type="button"
+                onClick={() => setActiveMenu(false)}
+                className="text-xl mt-4 p-3 rounded-full hover:bg-light-gray block md:hidden"
+              >
+                <MdOutlineCancel className="cursor-pointer" />
+              </button>
             </div>
             <div className="mt-10">
               {links.map((item) => (
@@ -57,7 +58,7 @@ const Sidebar = () => {
                       className={({ isActive }) =>
                         isActive ? activeLink : normalLink
                       }
-                      onClick={() => {}}
+                      onClick={handleCloseSidebar}
                     >
                       {link.icon}
                       <span className="capitalize text-[16px]">
