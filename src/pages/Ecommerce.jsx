@@ -3,15 +3,15 @@ import { BsCurrencyDollar } from "react-icons/bs";
 import { GoDotFill } from "react-icons/go";
 import { Stacked, Pie, Button, SparkLine } from "../components";
 import {
-  SparklineComponent,
-  Inject,
-  SparklineTooltip,
-} from "@syncfusion/ej2-react-charts";
-import {
   earningData,
   SparklineAreaData,
   ecomPieChartData,
 } from "../data/dummy";
+import {
+  SparklineComponent,
+  Inject,
+  SparklineTooltip,
+} from "@syncfusion/ej2-react-charts";
 
 import Line from "./charts/Line";
 
@@ -77,40 +77,19 @@ const Ecommerce = () => {
                   <p className="-mt-[10px] text-gray-400">Expense</p>
                 </div>
                 <div>
-                  {/* <SparkLine
-                    currentColor="blue"
-                    id="line-sparkline"
-                    type="Line"
-                    height="80px"
-                    width="250px"
-                    data={SparklineAreaData}
-                    color="blue"
-                  /> */}
-                  <SparklineComponent
-                    id="line-sparline"
-                    height="80px"
-                    width="200px"
-                    lineWidth={1}
-                    valueType="Numeric"
-                    fill="blue"
-                    border={{ color: "blue", width: 2 }}
-                    dataSource={SparklineAreaData}
-                    xName="x"
-                    yName="y"
-                    type="Line"
-                  >
-                    <Inject services={[SparklineTooltip]} />
-                  </SparklineComponent>
+                  <SparkLine />
                 </div>
-                <Button
-                  text="Download Report"
-                  bgColor="blue"
-                  color="white"
-                  borderRadius="10px"
-                />
+                <div>
+                  <Button
+                    text="Download Report"
+                    bgColor="blue"
+                    color="white"
+                    borderRadius="10px"
+                  />
+                </div>
               </article>
             </div>
-            <div className="bg-yellow-300">
+            <div className="bg-red-800">
               <div className="flex gap-4">
                 <p className="flex items-center gap-2 text-gray-600 hover:drop-shadow-xl">
                   <span>
@@ -125,7 +104,7 @@ const Ecommerce = () => {
                   <span>Budget</span>
                 </p>
               </div>
-              <div className="bg-red-200 w-full h-full">test</div>
+              <div className="w-full h-full">test</div>
             </div>
           </div>
         </div>

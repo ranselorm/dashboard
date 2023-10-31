@@ -6,21 +6,37 @@ import {
 } from "@syncfusion/ej2-react-charts";
 import { SparklineAreaData } from "../../data/dummy";
 
-const SparkLine = ({ id, currentColor, data, type, height, width, color }) => {
-  // console.log(id, currentColor, data);
+const SparkLine = ({
+  id,
+  currentColor,
+  data,
+  type,
+  height,
+  width,
+  color,
+  xName,
+  yName,
+}) => {
   return (
     <SparklineComponent
-      id="line-sparline"
-      height="80px"
-      width="200px"
+      id="sparkline"
+      height="70px"
+      width="250px"
       lineWidth={1}
+      fill="blue"
+      border={{ color: "blue", width: 4 }}
       valueType="Numeric"
-      fill={color}
-      border={{ color: "blue", width: 2 }}
       dataSource={SparklineAreaData}
-      xName="x"
-      yName="y"
+      xName="xval"
+      yName="yval"
       type="Line"
+      tooltipSettings={{
+        visible: true,
+        format: "${xval} : data ${yval}",
+        trackLineSettings: {
+          visible: true,
+        },
+      }}
     >
       <Inject services={[SparklineTooltip]} />
     </SparklineComponent>
