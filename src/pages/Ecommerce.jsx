@@ -19,7 +19,7 @@ const Ecommerce = () => {
   return (
     <div className="mt-12">
       <section className="flex flex-wrap lg:flex-nowrap justify-center">
-        <div className="bg-gray-200 dark:bg-secondary-dark-bg dark:text-gray-200 w-full h-44 rounded-xl lg:w-80 p-8 pt-9 m-3  bg-cover bg-no-repeat bg-center">
+        <div className="bg-gray-200 dark:bg-secondary-dark-bg dark:text-gray-200 w-full h-44 rounded-xl lg:w-80 p-8 pt-9 m-3 bg-cover bg-no-repeat bg-center">
           <div className="flex justify-between items-center">
             <div>
               <p className="font-bold text-gray-400">Earnings</p>
@@ -61,50 +61,50 @@ const Ecommerce = () => {
       </section>
       <section className="flex flex-wrap justify-center gap-10 mt-12">
         <div className="bg-white shadow-md dark:text-gray-200 dark:bg-secondary-dark-bg m-3 p-4 rounded-2xl md:w-780">
-          <div className="flex justify-between items-start">
-            <div className="">
-              <p className="font-semibold text-[25px] mb-6">Revenue Updates</p>
-              <article className="flex flex-col gap-y-4 m-10 border-r-1 border-color pr-20">
-                <div>
-                  <p className="text-[30px] flex items-center">
-                    <span className="font-semibold">$93,438</span>
-                    <span className="bg-green-400 rounded-full p-1.5 text-[10px] text-white ml-3">
-                      23%
-                    </span>
-                  </p>
-                  <p className="-mt-[10px] text-gray-400">Budget</p>
-                  <p className="text-[30px] font-semibold">$48,487</p>
-                  <p className="-mt-[10px] text-gray-400">Expense</p>
-                </div>
-                <div>
-                  <SparkLine />
-                </div>
-                <div>
-                  <Button
-                    text="Download Report"
-                    bgColor="blue"
-                    color="white"
-                    borderRadius="10px"
-                  />
-                </div>
-              </article>
+          <div className="flex items-center justify-between mb-6">
+            <p className="font-semibold text-[20px] justify-center">
+              Revenue Updates
+            </p>
+            <div className="flex gap-x-4">
+              <p className="flex items-center gap-2 text-gray-600 hover:drop-shadow-xl">
+                <span>
+                  <GoDotFill />
+                </span>
+                <span>Expense</span>
+              </p>
+              <p className="flex items-center gap-2 text-green-400 hover:drop-shadow-xl">
+                <span>
+                  <GoDotFill />
+                </span>
+                <span>Budget</span>
+              </p>
             </div>
-            <div className="bg-red-800">
-              <div className="flex gap-4">
-                <p className="flex items-center gap-2 text-gray-600 hover:drop-shadow-xl">
-                  <span>
-                    <GoDotFill />
+          </div>
+          <div className="flex items-start flex-col md:flex-row justify-between">
+            <article className="flex flex-col gap-y-4 m-10 border-r-1 border-color pr-20">
+              <div>
+                <p className="text-[30px] flex items-center">
+                  <span className="font-semibold">$93,438</span>
+                  <span className="bg-green-400 rounded-full p-1.5 text-[10px] text-white ml-3">
+                    23%
                   </span>
-                  <span>Expense</span>
                 </p>
-                <p className="flex items-center gap-2 text-green-400 hover:drop-shadow-xl">
-                  <span>
-                    <GoDotFill />
-                  </span>
-                  <span>Budget</span>
-                </p>
+                <p className="-mt-[10px] text-gray-400">Budget</p>
+                <p className="text-[30px] font-semibold">$48,487</p>
+                <p className="-mt-[10px] text-gray-400">Expense</p>
               </div>
-              <div className="w-full h-full">test</div>
+              <div>{/* <SparkLine /> */}</div>
+              <div>
+                <Button
+                  text="Download Report"
+                  bgColor="blue"
+                  color="white"
+                  borderRadius="10px"
+                />
+              </div>
+            </article>
+            <div className="w-full mt-20 md:mt-0">
+              <Stacked width="320px" height="360px" />
             </div>
           </div>
         </div>
