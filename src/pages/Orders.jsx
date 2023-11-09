@@ -21,15 +21,13 @@ const Orders = () => {
   return (
     <div className="m-2 md:m-4 p-2 md:p-10 rounded-3xl bg-white">
       <Header category="Page" title="Orders" />
-      <div className="bg-red-300">
-        <GridComponent>
-          <ColumnsDirective>
-            {ordersGrid.map((item, index) => (
-              <ColumnDirective key={index} {...item} />
-            ))}
-          </ColumnsDirective>
-        </GridComponent>
-      </div>
+      <GridComponent id="gridComp" dataSource={ordersData}>
+        <ColumnsDirective>
+          {ordersGrid.map((item, index) => (
+            <ColumnDirective key={index} {...item} />
+          ))}
+        </ColumnsDirective>
+      </GridComponent>
     </div>
   );
 };
